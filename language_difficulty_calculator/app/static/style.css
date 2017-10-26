@@ -1,0 +1,38 @@
+body {
+    background-color: #f5f5f5;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.relative {
+    position: relative;
+    left: 30px;
+}
+input[type=submit].add {
+    text-align: center;
+    border: 0 None;
+    position: absolute;
+    left: 0px;
+    height: 20px;
+    font-size: 13px;
+}
+input[type=submit].add:hover {
+    border: 1px solid lightblue;
+}
+input[type=submit].remove {
+    border: 0 None;
+    position:
+    absolute;
+    left: 130px;
+    opacity: .5;
+}
+input[type=submit].remove:hover {
+    opacity: 1;
+}
+.select {
+    font-size: 15px;
+    width: 100px;
+    text-align: center;
+    height: 20px;
+    position: absolute;
+    left: 50px;
+    border: 0 None;
+}

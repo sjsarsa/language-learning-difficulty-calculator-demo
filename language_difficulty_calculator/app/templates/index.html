@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+{% endblock %}
+<body>
+<h1>{{ header }}</h1>
+
+<img src="/static/co-word_occurrence_network_all.png" style="float: right; width: 65%; height: 65%;">
+<div class="relative">
+    <h2>Your languages:</h2>
+    {% for lang in user_languages %}
+    <form action="/user_languages/{{ lang }}"
+          method="POST"
+          name="delete_user_language">
+        {{ lang }}
+        <input type="submit" value="x"
+               class="remove"
+               align="right">
+    </form>
+    {% endfor %}
+    {% if languages|length > 0 %}
+    <form action="/user_languages" method="POST" name="user_language">
+        <input type="submit" value="Add"
+               class="add">
+        <select name="add_user_language" class="select">
+            {% for lang in languages %}
+            <option value="{{ lang }}">{{ lang }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    <h2 style="top: 10px; margin-top=100px; padding-top: 30px;">Learning difficulty:</h2>
+    {% for lang, difficulty in language_difficulties.items() %}
+    <p>{{ lang }}: {{ difficulty }}</p>
+    {% endfor %}
+    <h3>Difficulty rate: 0 = learned, piece of cake = 1 --> 10 = a lot of work needed</h3>
+    {% else %}
+    <h2>Congratulations, you have learned all the languages!</h2>
+    {% endif %}
+</div>
+
+</body>
+</html>
