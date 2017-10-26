@@ -9,8 +9,8 @@ def index():
     return render_template('index.html',
                            title='Languages, yay!',
                            header='Language learning difficulty calculator 0.1',
-                           languages=[l for l in app_data.languages if l not in app_data.user_languages],
-                           user_languages=app_data.user_languages,
+                           languages=[l for l in app_data.get_languages() if l not in app_data.get_user_languages()],
+                           user_languages=app_data.get_user_languages(),
                            language_difficulties=app_data.get_language_difficulties())
 
 
