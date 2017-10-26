@@ -2,4 +2,4 @@ Language learning calculator as a miniproject for the Introduction to Data Scien
 
 # language-learning-calculator-demo
 
-Working demo: https://language-learning-calculator.herokuapp.com
+Working demo: https://language-difficulty-calculator.herokuapp.com
