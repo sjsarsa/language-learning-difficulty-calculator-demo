@@ -14,7 +14,7 @@
 <h1>{{ header }}</h1>
 
 <img src="/static/co-word_occurrence_network_all.png" style="float: right; width: 65%; height: 65%;">
-<div class="relative">
+<div class="relative-left">
     <h2>Your languages:</h2>
     {% for lang in user_languages %}
     <form action="/user_languages/{{ lang }}"
@@ -40,11 +40,30 @@
     {% for lang, difficulty in language_difficulties.items() %}
     <p>{{ lang }}: {{ difficulty }}</p>
     {% endfor %}
-    <h3>Difficulty rate: 0 = learned, piece of cake = 1 --> 10 = a lot of work needed</h3>
+    <h3>Difficulty rate:</h3>
+    <div class="relative-left-2">
+      <h5>0 = learned</h3>
+      <h5>1 = a piece of cake</h3>
+      <h5>10 = a lot of work required</h3>
+    </div>
+    <p>The difficulty rate considers only the similarity of learned
+       languages and unlearned languages. The similarity is based on
+       hierarchical clustering of word co-occurence networks derived from the
+       book Alice in Wonderland by Lewis Carroll, this is explained in higher
+       detail in the video. <br>
+       The complexity of the language does
+       not affect the rating. To achieve this, one way could be to add a
+       difficulty factor based on the complexities of the word co-occurence
+       networks used to find the similarities of the languages.
     {% else %}
     <h2>Congratulations, you have learned all the languages!</h2>
     {% endif %}
 </div>
-
+<div>
+  <h2>A video explaining how this was done:</h2>
+  <video width="800" height="600" controls>
+    <source src="/static/language_clustering_final.mp4" type="video/mp4">
+  </video>
+</div>
 </body>
 </html>
